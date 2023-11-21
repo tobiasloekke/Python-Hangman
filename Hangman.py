@@ -23,20 +23,24 @@ def newGame():
     gameGuessedLetters = []
     gameWordLetters = []
 
-    newGame = input("Would you like to start a new round? (yes) ")
+    newGame = input("Would you like to start a new round? (no)")    
     
     if gameStarted == False:
         if (newGame == "yes"):
+
             startGame()
         
 
 
 def startGame():
-    
+    global gameAttempts
+
     # Lets start by choosing a word
     chooseWord()
+    gameAttempts = 5
     buildTiles()
     print(gameBoardTiles)
+    print("Attempts left: " + gameAttempts)
     
     # We update the (bool)gameStarted to True
     gameStarted = True
